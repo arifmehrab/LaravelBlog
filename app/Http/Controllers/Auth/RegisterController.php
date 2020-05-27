@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Notification;
+use App\Notifications\notifyAdmin;
 
 class RegisterController extends Controller
 {
@@ -80,7 +82,8 @@ class RegisterController extends Controller
             'address'  => $data['address'],
             'about'  => $data['about'],
         ]);
-
-         return $user;
+    $users = User::where('role_id', 1)->get();
+    Notification::send($users, new notifyAdmin($user));
+    return $user;
     }
 }

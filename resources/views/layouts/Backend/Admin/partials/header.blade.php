@@ -49,6 +49,10 @@
                                 <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
+                                @php 
+                                $u = Auth::user()->id;
+                                $user = App\Models\User::where('id', $u)->first();
+                                @endphp
                                 <ul>
                                     <li>
                                         <div class="drop-title">Notifications</div>
@@ -56,7 +60,16 @@
                                     <li>
                                         <div class="message-center">
                                             <!-- Message -->
-                                            
+                                     @foreach($user->notifications as $notification)
+                                          <a href="#">
+                                                <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>{{ $notification->data['name'] }}</h5> <span class="mail-desc">Register As An Author!</span> <span class="time">{{ $notification->created_at->diffForHumans() }}</span> </div>
+                                            </a>
+                                            @php 
+                                             $notification->markAsRead();
+                                            @endphp
+                                     @endforeach
                                         </div>
                                     </li>
                                     <li>
