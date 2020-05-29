@@ -15,8 +15,12 @@ class CreatePostUserTable extends Migration
     {
         Schema::create('post_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id');
-            $table->integer('user_id');
+            $table->foreignId('post_id')
+                        ->constrained()
+                        ->onDelete('cascade');
+            $table->foreignId('user_id')
+                        ->constrained()
+                        ->onDelete('cascade');
             $table->timestamps();
         });
     }

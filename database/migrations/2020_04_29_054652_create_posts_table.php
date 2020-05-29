@@ -15,7 +15,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')
+                        ->constrained()
+                        ->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
             $table->string('image');
@@ -25,9 +27,6 @@ class CreatePostsTable extends Migration
             $table->tinyInteger('is_approved')->default(0);
             $table->date('date')->nullable();
             $table->timestamps();
-            // $table->foreign('user_id')
-            // ->references('id')->on('users')
-            // ->onDelete('cascade');
         });
     }
 

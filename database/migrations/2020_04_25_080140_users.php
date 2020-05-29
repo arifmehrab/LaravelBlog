@@ -17,11 +17,13 @@ class Users extends Migration
             $table->id();
             $table->string('role_id')->nullable();
             $table->string('name')->nullable();
-            $table->string('email',)->unique();
+            $table->string('phone_number');
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('address')->nullable();
             $table->string('profile')->nullable();
             $table->longText('about')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

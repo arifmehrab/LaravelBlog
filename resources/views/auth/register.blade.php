@@ -53,6 +53,17 @@
                                 @enderror
                             </div>
                         </div>
+                         <div class="form-group">
+                            <div class="col-xs-12">
+                                <input type="number" placeholder="Phone Number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('name') }}" required autocomplete="phone_number" autofocus>
+
+                                @error('phone_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <input placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Auth;
 use Notification;
 use App\Notifications\notifyAdmin;
+use App\Notifications\smsNotify;
+use Nexmo;
 
 class RegisterController extends Controller
 {
@@ -77,11 +79,13 @@ class RegisterController extends Controller
          $user = User::create([
             'role_id' => 2,
             'name' => $data['name'],
+            'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'address'  => $data['address'],
             'about'  => $data['about'],
         ]);
+    //Database Notification
     $users = User::where('role_id', 1)->get();
     Notification::send($users, new notifyAdmin($user));
     return $user;
