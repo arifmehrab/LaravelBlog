@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\tag;
+use Illuminate\Http\Request;
 use Illuminate\Support\str;
 
 class tagController extends Controller
@@ -40,15 +40,15 @@ class tagController extends Controller
     {
         // validation
         $validation = $request->validate([
-            'tag' => 'required'
+            'tag' => 'required',
         ]);
         // Insert Tag
-        $tag = new tag();
+        $tag       = new tag();
         $tag->name = $request->tag;
-        $tag->slug = str::slug($request->tag,'-');
+        $tag->slug = str::slug($request->tag, '-');
         $tag->save();
         // redirect
-        return redirect()->route('admin.tag.index')->with('success','Tag Added Successfully');
+        return redirect()->route('admin.tag.index')->with('success', 'Tag Added Successfully');
     }
 
     /**
@@ -69,7 +69,7 @@ class tagController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $tagEdit = tag::find($id);
         return view('layouts.Backend.Admin.tag.tag_edit', compact('tagEdit'));
     }
@@ -83,9 +83,9 @@ class tagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tagUpdate = tag::find($id);
+        $tagUpdate       = tag::find($id);
         $tagUpdate->name = $request->tag;
-        $tagUpdate->slug = str::slug($request->tag,'-');
+        $tagUpdate->slug = str::slug($request->tag, '-');
         $tagUpdate->save();
         // Redirect
         return redirect()->route('admin.tag.index')->with('success', 'Tag Edit Successfully');
@@ -102,6 +102,6 @@ class tagController extends Controller
         $tagDelete = tag::find($id);
         $tagDelete->delete();
         // Redirect
-        return redirect()->route('admin.tag.index')->with('success','Tag Delated Successfully');
+        return redirect()->route('admin.tag.index')->with('success', 'Tag Delated Successfully');
     }
 }

@@ -923,7 +923,7 @@ When click on sidebar toggler and also for tablet
     width: 220px;
     padding-bottom: 10px;
     z-index: 1001;
-    background: #edf0f5;
+    background: #121213;
     display: none;
     padding-left: 1px; }
   .mini-sidebar .user-profile .profile-img {
@@ -962,7 +962,7 @@ When click on sidebar toggler and also for tablet
     width: 70px; }
   .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
     width: 290px;
-    background: #edf0f5; }
+    background: #121213; }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a .hide-menu {
       display: inline; }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a .label {

@@ -20,6 +20,11 @@
     
     <!-- You can change the theme colors from here -->
     <link href="{{ asset('Backend/assets/css/colors/default-dark.css') }}" id="theme" rel="stylesheet">
+    <style type="text/css">
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 
 <body class="card-no-border">
@@ -44,7 +49,7 @@
                         <h3 class="box-title m-b-20">Become A Author</h3>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="username" type="text" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -55,7 +60,7 @@
                         </div>
                          <div class="form-group">
                             <div class="col-xs-12">
-                                <input type="number" placeholder="Phone Number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('name') }}" required autocomplete="phone_number" autofocus>
+                                <input type="number" placeholder="Phone Number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('name') }}" required autocomplete="phone_number" autofocus id="number">
 
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
@@ -66,7 +71,7 @@
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" id="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -77,7 +82,7 @@
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" id="password">
 
                                  @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -88,17 +93,17 @@
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" id="confirm_password">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input placeholder="Address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" autocomplete="address">
+                                <input placeholder="Address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" autocomplete="address" id="address">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input placeholder="About Me" type="text" class="form-control @error('about') is-invalid @enderror" name="about" required autocomplete="about">
+                                <input placeholder="About Me" type="text" class="form-control @error('about') is-invalid @enderror" name="about" required autocomplete="about" id="about">
                             </div>
                              @error('about')
                                     <span class="invalid-feedback" role="alert">
@@ -131,6 +136,9 @@
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('Backend/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
     <script src="{{ asset('Backend/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- Jquery Validation -->
+    <script src="{{ asset('Backend/assets/validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('Backend/assets/validation/form-validation-script.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $(".preloader").fadeOut();

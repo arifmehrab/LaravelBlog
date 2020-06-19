@@ -28,7 +28,7 @@
                         <!-- This is  -->
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                        
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -49,7 +49,7 @@
                                 <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
-                                @php 
+                                @php
                                 $u = Auth::user()->id;
                                 $user = App\Models\User::where('id', $u)->first();
                                 @endphp
@@ -66,7 +66,7 @@
                                                 <div class="mail-contnet">
                                                     <h5>{{ $notification->data['name'] }}</h5> <span class="mail-desc">Register As An Author!</span> <span class="time">{{ $notification->created_at->diffForHumans() }}</span> </div>
                                             </a>
-                                            @php 
+                                            @php
                                              $notification->markAsRead();
                                             @endphp
                                      @endforeach

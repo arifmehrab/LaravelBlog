@@ -53,13 +53,13 @@ class categoryController extends Controller
        // Insert category
         $category = new category();
         $category->name = $request->category;
-        $category->slug = str::slug($request->category,'-');
+        $category->slug = str::slug($request->category,'_');
         $category->image = $imageName;
         $category->save();
         // redirect
         return redirect()->route('admin.category.index')->with('success','category Added Successfully');
 
-        
+
     }
 
     /**
@@ -80,7 +80,7 @@ class categoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $category = category::find($id);
         return view('layouts.Backend.Admin.category.category_edit', compact('category'));
     }
