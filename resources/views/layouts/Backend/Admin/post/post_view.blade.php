@@ -29,7 +29,7 @@
                         	</tr>
                         </thead>
                         <tbody>
-                            @php 
+                            @php
                             use Illuminate\Support\str;
                             @endphp
                         	@foreach($posts as $key => $post)
